@@ -16,11 +16,13 @@
         },
         {
             "name": "linux",
+            "displayName": "x86_64-linux-gnu",
+            "description": "native host",
             "inherits": "common",
-            "displayName": "linux",
             "cacheVariables": {
-                "CMAKE_C_COMPILER": "/usr/bin/gcc",
-                "CMAKE_CXX_COMPILER": "/usr/bin/g++"
+                "CMAKE_C_COMPILER"  : "/usr/bin/gcc",
+                "CMAKE_CXX_COMPILER": "/usr/bin/g++",
+                "ARCH": "x86_64", "HW":"pc", "OS":"linux"
             }
         }
     ]
