@@ -12,3 +12,12 @@ set(CMAKE_CXX_COMPILER ${TOOLCHAIN_PREFIX}-g++)
 set(CMAKE_LINKER       ${TOOLCHAIN_PREFIX}-g++)
 set(CMAKE_OBJCOPY      ${TOOLCHAIN_PREFIX}-objcopy)
 set(CMAKE_SIZE         ${TOOLCHAIN_PREFIX}-size)
+
+string(TOUPPER ${HW}     HW_)
+string(TOUPPER ${CPU}   CPU_)
+string(TOUPPER ${ARCH} ARCH_)
+string(TOUPPER ${OS}     OS_)
+
+add_compile_options(
+    "-D${HW_}" "-D${CPU_}" "-D${ARCH_}" "-D${OS_}"
+)

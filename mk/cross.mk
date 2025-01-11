@@ -1,5 +1,5 @@
-# HW ?= pc
-HW ?= mega2560
+HW ?= pc
+# HW ?= mega2560
 
 include   hw/$(HW).mk
 include  cpu/$(CPU).mk

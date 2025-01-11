@@ -1,5 +1,8 @@
-$(BIN)/$(MODULE): $(C) $(H) $(CP) $(HP)
-	$(CXX) $(CFLAGS) -o $@ $(C) $(CP) $(L)
+# rule
+$(BIN)/$(BINFILE): $(C) $(H) $(CP) $(HP)
+	cmake --preset         $(OS)
+	cmake --build   $(TMP)/$(OS)
+	cmake --install $(TMP)/$(OS)
 
 $(TMP)/%.lexer.cpp: $(SRC)/%.lex
 	flex -o $@ $<

@@ -1,4 +1,5 @@
+# all
 .PHONY: all run
-all: $(BIN)/$(MODULE) $(S)
-run: $(BIN)/$(MODULE) $(S)
+all: $(BIN)/$(BINFILE) $(S)
+run: $(BIN)/$(BINFILE) $(S)
 	$^

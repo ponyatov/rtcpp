@@ -61,7 +61,8 @@
     // "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
 
     // cmake
-    "cmake.sourceDirectory"  : "${workspaceFolder}",
-    "cmake.buildDirectory"   : "${workspaceFolder}/tmp/${workspaceFolderBasename}",
-    "cmake.generator"        : "Unix Makefiles",
+    // "cmake.sourceDirectory"  : "${workspaceFolder}",
+    // "cmake.buildDirectory"   : "${workspaceFolder}/tmp/${workspaceFolderBasename}",
+    // "cmake.generator"        : "Unix Makefiles",
+    "cmake.useCMakePresets"  : "always"
 }
