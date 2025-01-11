@@ -6,6 +6,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.launchTargetPath}",
+            "preLaunchTask": "cmake: build",
             "args": ["${workspaceFolder}/lib/${workspaceFolderBasename}.ini"],
             "cwd": "${workspaceFolder}",
             "externalConsole": false,
