@@ -35,11 +35,19 @@
             "type": "cmake",
             "label": "cmake: build",
             "command": "build",
-            "targets": ["all"],
+            "targets": ["all","install"],
             "preset": "${command:cmake.activeBuildPresetName}",
             "group": "build",
             "problemMatcher": [],
             "promptOnClose": false
+        },
+        {
+            "type": "cmake",
+            "label": "cmake: clean",
+            "command": "clean",
+            "preset": "${command:cmake.activeBuildPresetName}",
+            "problemMatcher": [],
+            "detail": "CMake template clean task"
         }
     ]
 }

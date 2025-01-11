@@ -1,3 +1,4 @@
+# "CMAKE_VERBOSE_MAKEFILE": true
 cmake_minimum_required(VERSION 3.22)
 get_filename_component(PROJECT_NAME ${CMAKE_SOURCE_DIR} NAME_WE)
 project(${PROJECT_NAME} LANGUAGES C CXX ASM)
@@ -66,3 +67,7 @@ install(TARGETS ${CMAKE_PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_PREFIX})
 #     PROGRAMS ${TMP}/${HW}/${CMAKE_PROJECT_NAME}.elf
 #     DESTINATION ${CMAKE_INSTALL_PREFIX}
 #     RENAME ${BIN_OUTPUT_NAME})
+
+add_custom_target(clean_all
+    COMMAND ${CMAKE_BUILD_TOOL} clean
+)
