@@ -52,3 +52,10 @@ message("--  hardware: " ${HW} "/" ${CPU} "/" ${ARCH})
 message("--        os: " ${OS})
 message("--   startup: " ${A})
 message("--    binary: " ${BIN_OUTPUT_NAME})
+
+add_executable(${CMAKE_PROJECT_NAME}
+    ${C} ${H} ${A} ${LD}
+    ${FLEX_lex_OUTPUTS} ${BISON_yacc_OUTPUTS}
+)
+
+target_link_libraries(${PROJECT_NAME})
