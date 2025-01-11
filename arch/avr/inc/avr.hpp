@@ -1,4 +1,4 @@
 #pragma once
 
-/// @defgroup X86_64 X86_64
+/// @defgroup avr avr
 /// @ingroup arch
