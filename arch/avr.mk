@@ -1,0 +1,2 @@
+TARGET = avr
+OS ?= bare
