@@ -1,4 +1,5 @@
-HW ?= pc
+# HW ?= pc
+HW ?= retro
 # HW ?= mega2560
 
 include   hw/$(HW).mk

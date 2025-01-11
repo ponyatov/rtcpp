@@ -1,0 +1,2 @@
+ARCH   ?= i386
+CFLAGS += -DI486

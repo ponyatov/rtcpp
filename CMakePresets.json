@@ -3,7 +3,8 @@
     "buildPresets": [
         {
             "name":            "linux",
-            "configurePreset": "linux"
+            "configurePreset": "linux",
+            "targets": ["all","install"]
         }
     ],
     "configurePresets": [
