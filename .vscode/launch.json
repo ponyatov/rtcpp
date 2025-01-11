@@ -11,6 +11,9 @@
             "externalConsole": false,
             "stopAtEntry": true,
             "MIMode": "gdb",
+            "setupCommands": [
+                {"text": "-enable-pretty-printing", "ignoreFailures": true}
+            ]
         }
     ]
 }
