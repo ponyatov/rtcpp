@@ -22,7 +22,7 @@
             "cacheVariables": {
                 "CMAKE_C_COMPILER"  : "/usr/bin/gcc",
                 "CMAKE_CXX_COMPILER": "/usr/bin/g++",
-                "ARCH": "x86_64", "HW":"pc", "OS":"linux"
+                "HW":"pc", "CPU": "i5", "ARCH": "x86_64", "OS":"linux"
             }
         }
     ]
