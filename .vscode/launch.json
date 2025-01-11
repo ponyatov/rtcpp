@@ -1,5 +1,16 @@
 {
     "version": "0.2.0",
     "configurations": [
+        {
+            "name": "linux",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${command:cmake.launchTargetPath}",
+            "args": ["${workspaceFolder}/lib/${workspaceFolderBasename}.ini"],
+            "cwd": "${workspaceFolder}",
+            "externalConsole": false,
+            "stopAtEntry": true,
+            "MIMode": "gdb",
+        }
     ]
 }
