@@ -5,7 +5,7 @@
 #include "arch.hpp"
 #include "os.hpp"
 
-#include "libc.hpp"
+#include "libc/libc.hpp"
 #include "main.hpp"
 #include "object.hpp"
 #include "syntax.hpp"

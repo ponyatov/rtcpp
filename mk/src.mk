@@ -14,3 +14,6 @@ H += $(wildcard   os/$(OS)/inc/*.h*)
 
 CP += $(TMP)/$(MODULE).parser.cpp $(TMP)/$(MODULE).lexer.cpp
 HP += $(TMP)/$(MODULE).parser.hpp
+
+C += $(wildcard src/libc/*.c*)
+H += $(wildcard inc/libc/*.h*)
