@@ -24,12 +24,16 @@ file(GLOB_RECURSE C
     "${CWD}/src/*.c*"
     "${CWD}/hw/${HW}/src/*.c*"
     "${CWD}/os/${OS}/src/*.c*"
+    "${CWD}/libc/*.c*"
+    "${CWD}/rtos/*.c*"
     "${LIB}/led/src/*.c*"
 )
 file(GLOB_RECURSE H
     "${CWD}/inc/*.h*"
     "${CWD}/hw/${HW}/inc/*.h*"
     "${CWD}/os/${OS}/inc/*.h*"
+    "${CWD}/inc/libc/*.h*"
+    "${CWD}/inc/rtos/*.h*"
     "${LIB}/led/inc/*.h*"
 )
 
@@ -37,6 +41,8 @@ include_directories(
     ${INC} ${TMP} ${SRC}
     "${CWD}/hw/${HW}/inc"
     "${CWD}/os/${OS}/inc"
+    "${CWD}/inc/libc"
+    "${CWD}/inc/rtos"
     "${LIB}/led/inc"
 )
 
