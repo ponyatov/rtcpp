@@ -20,4 +20,5 @@ string(TOUPPER ${OS}     OS_)
 
 add_compile_options(
     "-D${HW_}" "-D${CPU_}" "-D${ARCH_}" "-D${OS_}"
+    "-mmcu=${CPU}"
 )

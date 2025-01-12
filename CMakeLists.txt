@@ -58,7 +58,7 @@ BISON_TARGET(yacc ${Y} ${TMP}/${yacc}.parser.cpp
           DEFINES_FILE ${TMP}/${yacc}.parser.hpp)
 
 message("-- toolchain: " ${CMAKE_CXX_COMPILER} " @ " ${CMAKE_TOOLCHAIN_FILE})
-message("--  hardware: " ${HW} "/" ${CPU} "/" ${ARCH})
+message("--    target: " "hw:" ${HW} " cpu:" ${CPU} "/" ${ARCH})
 message("--        os: " ${OS})
 message("--   startup: " ${A})
 message("--    binary: " ${BIN_OUTPUT_NAME})

@@ -1,6 +1,6 @@
-HW ?= pc
+# HW ?= pc
 # HW ?= retro
-# HW ?= mega2560
+HW ?= arduino2560
 
 include   hw/$(HW).mk
 include  cpu/$(CPU).mk

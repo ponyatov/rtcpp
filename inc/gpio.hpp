@@ -1,6 +1,6 @@
 #pragma once
 
-#include <cstdint>
+#include <stdint.h>
 
 /// @defgroup gpio gpio
 /// @ingroup hal
@@ -14,7 +14,24 @@ enum class State : bool {
 };
 
 /// @brief MCU port
-class Port {};
+class Port {
+    char name;
+
+   public:
+    Port(char name);
+};
+
+/// @brief 8-bit @ref Port
+class Port8 : public Port {
+   public:
+    Port8(char name) : Port(name) {}
+};
+
+/// @brief 16-bit @ref Port
+class Port16 : public Port {
+   public:
+    Port16(char name) : Port(name) {}
+};
 
 /// @brief @ref Pin index in port
 // using Index = uint8_t;
