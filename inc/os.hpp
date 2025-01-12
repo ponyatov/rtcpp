@@ -1,6 +1,7 @@
 #pragma once
 
 /// @defgroup os os
+/// @brief OS-hosted builds
 /// @ingroup cross
 
 #include <assert.h>

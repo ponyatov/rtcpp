@@ -24,17 +24,20 @@ file(GLOB_RECURSE C
     "${CWD}/src/*.c*"
     "${CWD}/hw/${HW}/src/*.c*"
     "${CWD}/os/${OS}/src/*.c*"
+    "${LIB}/led/src/*.c*"
 )
 file(GLOB_RECURSE H
     "${CWD}/inc/*.h*"
     "${CWD}/hw/${HW}/inc/*.h*"
     "${CWD}/os/${OS}/inc/*.h*"
+    "${LIB}/led/inc/*.h*"
 )
 
 include_directories(
     ${INC} ${TMP} ${SRC}
     "${CWD}/hw/${HW}/inc"
     "${CWD}/os/${OS}/inc"
+    "${LIB}/led/inc"
 )
 
 find_package(FLEX  REQUIRED)

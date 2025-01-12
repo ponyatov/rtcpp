@@ -17,3 +17,6 @@ HP += $(TMP)/$(MODULE).parser.hpp
 
 C += $(wildcard src/libc/*.c*)
 H += $(wildcard inc/libc/*.h*)
+
+C += $(wildcard lib/led/src/*.c*)
+H += $(wildcard lib/led/inc/*.h*)

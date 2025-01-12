@@ -1,4 +1,4 @@
 #pragma once
 
-/// @defgroup x86_64 x86_64
+/// @defgroup i386 i386
 /// @ingroup arch

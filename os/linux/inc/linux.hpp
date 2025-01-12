@@ -1,14 +1,14 @@
 #pragma once
 
-/// @ingroup libc
+/// @defgroup linux linux
+/// @ingroup os
 /// @{
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
 /// @}
 
-/// @defgroup main main
-/// @ingroup core
+/// @ingroup main
 /// @{
 extern int main(int argc, char *argv[]);
 extern void arg(int argc, char *argv);

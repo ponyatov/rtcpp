@@ -1,5 +1,12 @@
 #pragma once
 
+/// @defgroup cli cli
+/// @brief REPL/CLI command line
+
+/// @defgroup syntax syntax
+/// @brief control script syntax parser
+/// @ingroup cli
+/// @{
 extern int yylex();
 extern char *yyfile;
 extern int yylineno;
@@ -8,3 +15,4 @@ extern FILE *yyin;
 extern int yyparse();
 extern void yyerror(const char *msg);
 #include "rtcpp.parser.hpp"
+/// @}
