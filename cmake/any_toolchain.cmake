@@ -20,12 +20,12 @@ string(TOUPPER ${OS}     OS_)
 
 add_compile_options(
     "-D${HW_}" "-D${CPU_}" "-D${ARCH_}" "-D${OS_}"
-    "-mmcu=${CPU}"
-    "-fno-rtti" "-fno-exceptions" "-fno-threadsafe-statics"
-    "-ffunction-sections" "-fdata-sections"
+    # "-mmcu=${CPU}"
+    # "-fno-rtti" "-fno-exceptions" "-fno-threadsafe-statics"
+    # "-ffunction-sections" "-fdata-sections"
 )
 
-include(  hw/${HW}.cmake  )
-include( cpu/${CPU}.cmake )
-include(arch/${ARCH}.cmake)
 include(  os/${OS}.cmake  )
+include(arch/${ARCH}.cmake)
+include( cpu/${CPU}.cmake )
+include(  hw/${HW}.cmake  )
