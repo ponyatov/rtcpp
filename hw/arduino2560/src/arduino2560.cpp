@@ -3,6 +3,6 @@
 
 Port8 B = Port8('B');
 
-Pin led_pin = Pin(B, 7, State::LOW);
+Pin led_pin = Pin(B, Index{m7 : 7}, State::LOW);
 
 LED led = LED(led_pin, Color::GREEN);

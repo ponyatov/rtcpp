@@ -22,3 +22,8 @@ add_compile_options(
     "-D${HW_}" "-D${CPU_}" "-D${ARCH_}" "-D${OS_}"
     "-mmcu=${CPU}"
 )
+
+include(  hw/${HW}.cmake  )
+include( cpu/${CPU}.cmake )
+include(arch/${ARCH}.cmake)
+include(  os/${OS}.cmake  )

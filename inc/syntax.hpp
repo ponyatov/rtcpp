@@ -7,6 +7,7 @@
 /// @brief control script syntax parser
 /// @ingroup cli
 /// @{
+#ifdef LINUX
 extern int yylex();
 extern char *yyfile;
 extern int yylineno;
@@ -15,4 +16,5 @@ extern FILE *yyin;
 extern int yyparse();
 extern void yyerror(const char *msg);
 #include "rtcpp.parser.hpp"
+#endif
 /// @}

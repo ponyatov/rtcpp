@@ -46,17 +46,6 @@ include_directories(
     "${LIB}/led/inc"
 )
 
-find_package(FLEX  REQUIRED)
-find_package(BISON REQUIRED)
-
-file(GLOB L CONFIGURE_DEPENDS ${SRC}/*.lex)
-file(GLOB Y CONFIGURE_DEPENDS ${SRC}/*.yacc)
-get_filename_component(lex  ${L} NAME_WE)
-get_filename_component(yacc ${Y} NAME_WE)
- FLEX_TARGET(lex  ${L} ${TMP}/${lex}.lexer.cpp)
-BISON_TARGET(yacc ${Y} ${TMP}/${yacc}.parser.cpp
-          DEFINES_FILE ${TMP}/${yacc}.parser.hpp)
-
 message("-- toolchain: " ${CMAKE_CXX_COMPILER} " @ " ${CMAKE_TOOLCHAIN_FILE})
 message("--    target: " "hw:" ${HW} " cpu:" ${CPU} "/" ${ARCH})
 message("--        os: " ${OS})
@@ -65,7 +54,7 @@ message("--    binary: " ${BIN_OUTPUT_NAME})
 
 add_executable(${CMAKE_PROJECT_NAME}
     ${C} ${H} ${A} ${LD}
-    ${FLEX_lex_OUTPUTS} ${BISON_yacc_OUTPUTS}
+    # ${FLEX_lex_OUTPUTS} ${BISON_yacc_OUTPUTS}
 )
 
 target_link_libraries(${PROJECT_NAME})

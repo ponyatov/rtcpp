@@ -9,6 +9,6 @@
 /// @ingroup hw
 /// @{
 
-extern Port8 A,B,C,D;
+extern Port8 A, B, C, D;
 
 /// @}
