@@ -1,7 +1,7 @@
 #pragma once
 
 /// @defgroup cli cli
-/// @brief REPL/CLI command line
+/// @brief REPL/CLI command line inteface
 
 /// @defgroup syntax syntax
 /// @brief control script syntax parser
