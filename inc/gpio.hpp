@@ -18,8 +18,9 @@ class Port {};
 
 /// @brief @ref Pin index in port
 // using Index = uint8_t;
-struct Index {
-    uint8_t i : 4;  ///< `0..15` limited to 4 bit
+union Index {
+    uint8_t m7 : 3;   ///< `0..7` limited to 3 bit (max 7)
+    uint8_t m15 : 4;  ///< `0..15` limited to 4 bit (max 15)
 };
 
 /// @brief MCU/GPIO digital pin
@@ -29,7 +30,7 @@ class Pin {
     Index index;  ///< pin index in @ref port
 
    public:
-    Pin(Port p, State state);
+    Pin(Port p, Index idx, State state);
     State get();
     void set(State s);
 };
