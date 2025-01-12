@@ -62,6 +62,11 @@
 
     // cmake
     "cmake.sourceDirectory"  : "${workspaceFolder}",
-    "cmake.buildDirectory"   : "${workspaceFolder}/tmp/${workspaceFolderBasename}",
+    // "cmake.buildDirectory"   : "${workspaceFolder}/tmp/${workspaceFolderBasename}",
     "cmake.generator"        : "Unix Makefiles",
+    // "cmake.parallelJobs"     : 4,
+    "cmake.configureSettings": {
+        // "CMAKE_VERBOSE_MAKEFILE": true
+    },
+    "cmake.useCMakePresets"     : "always"
 }

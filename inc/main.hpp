@@ -1,4 +1,8 @@
 #pragma once
 
-extern int main(int argc, char *argv[]);
-extern void arg(int argc, char *argv);
+/// @defgroup core core
+/// @brief minimal system core
+
+/// @defgroup main main
+/// @brief POSIX entry point
+/// @ingroup core
