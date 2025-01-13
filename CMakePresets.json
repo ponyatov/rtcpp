@@ -24,7 +24,7 @@
             "binaryDir": "${sourceDir}/tmp/${presetName}",
             "generator": "Unix Makefiles",
             "cacheVariables": {
-                "CMAKE_VERBOSE_MAKEFILE": true,
+                "CMAKE_VERBOSE_MAKEFILE": false,
                 "CMAKE_INSTALL_PREFIX": "${sourceDir}/bin",
                 "CMAKE_BUILD_TYPE": "Debug",
                 "CMAKE_C_STANDARD"  : "17",
@@ -65,7 +65,7 @@
             "toolchainFile": "${sourceDir}/cmake/arm-none-eabi.cmake",
             "cacheVariables": {
                 "OS":"bare",
-                "WFLAGS": "-Wall -Wextra -Wpedantic",
+                "WFLAGS": "-Wall -Wextra -Wpedantic -Wno-unused-parameter",
                 "FSECTIONS": "-fdata-sections -ffunction-sections"
             }
         },
@@ -83,7 +83,7 @@
             "name": "stm32l496g",
             "inherits": "cortexM4",
             "cacheVariables": {
-                "HW" :"stm32l496g",
+                "HW" :"stm32l496g", "SERIES": "STM32L4",
                 "CPU":"STM32L496AGI"
             }
         }

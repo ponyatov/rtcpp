@@ -27,6 +27,8 @@ file(GLOB_RECURSE C
     "${CWD}/libc/*.c*"
     "${CWD}/rtos/*.c*"
     "${LIB}/led/src/*.c*"
+    "${CWD}/hw/${HW}/Core/Src/*.c*"
+    "${CWD}/hw/${HW}/Drivers/${SERIES}xx_HAL_Driver/Src/*.c*"
 )
 file(GLOB_RECURSE H
     "${CWD}/inc/*.h*"
@@ -35,6 +37,9 @@ file(GLOB_RECURSE H
     "${CWD}/inc/libc/*.h*"
     "${CWD}/inc/rtos/*.h*"
     "${LIB}/led/inc/*.h*"
+    "${CWD}/hw/${HW}/Core/Inc/*.h*"
+    "${CWD}/hw/${HW}/Drivers/${SERIES}xx_HAL_Driver/Inc/*.h*"
+    "${CWD}/hw/${HW}/Drivers/CMSIS/Device/ST/${SERIES}xx/Include/*.h*"
 )
 
 include_directories(
@@ -44,6 +49,9 @@ include_directories(
     "${CWD}/inc/libc"
     "${CWD}/inc/rtos"
     "${LIB}/led/inc"
+    "${CWD}/hw/${HW}/Core/Inc"
+    "${CWD}/hw/${HW}/Drivers/${SERIES}xx_HAL_Driver/Inc"
+    "${CWD}/hw/${HW}/Drivers/CMSIS/Device/ST/${SERIES}xx/Include"
 )
 
 message("-- toolchain: " ${CMAKE_CXX_COMPILER} " @ " ${CMAKE_TOOLCHAIN_FILE})
