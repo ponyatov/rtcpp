@@ -11,6 +11,7 @@
                 "${workspaceFolder}/lib/**"
             ],
             "forcedInclude": [],
+            "compilerArgs": ["-march=native"],
             "defines": [
                 "PC", "I5", "X86_64", "LINUX"
             ],
@@ -18,6 +19,28 @@
             "cppStandard": "gnu++17",
             "intelliSenseMode": "gcc-x64",
             "compilerPath": "/usr/bin/x86_64-linux-gnu-g++"
+        },
+        {
+            "name": "arm-none-eabi",
+            "includePath": [
+                "${workspaceFolder}/inc/**",
+                "${workspaceFolder}/tmp/**",
+                "${workspaceFolder}/src/**",
+                "${workspaceFolder}/os/bare/inc/**",
+                "${workspaceFolder}/lib/**",
+                "${workspaceFolder}/hw/stm32l496g/Core/Inc/"
+            ],
+            "compilerArgs": [
+                "-mthumb -mcpu=cortex-m4",
+                "-mfpu=fpv4-sp-d16 -mfloat-abi=hard"
+            ],
+            "defines": [
+                "STM32L496G", "STM32L496AGI", "CORTEXM", "CORTEXM4", "BARE"
+            ],
+            "cStandard": "gnu17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "/usr/bin/arm-none-eabi-g++"
         }
     ]
 }

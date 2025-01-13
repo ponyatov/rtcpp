@@ -29,3 +29,16 @@ include(  os/${OS}.cmake  )
 include(arch/${ARCH}.cmake)
 include( cpu/${CPU}.cmake )
 include(  hw/${HW}.cmake  )
+
+if(CMAKE_BUILD_TYPE MATCHES Debug)
+    set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS}   -O0 -g3")
+    # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0 -g3")
+endif()
+if(CMAKE_BUILD_TYPE MATCHES Release)
+    set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS}   -Os -g0")
+    # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Os -g0")
+endif()
+
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${WFLAGS} ${FSECTIONS}")
+
+set(CMAKE_C_LINK_FLAGS "${CMAKE_C_LINK_FLAGS} -Wl,--print-memory-usage")
