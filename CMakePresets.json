@@ -10,6 +10,11 @@
             "name":              "mega2560",
             "configurePreset":   "mega2560",
             "targets":          ["all","install"]
+        },
+        {
+            "name":              "stm32l496g",
+            "configurePreset":   "stm32l496g",
+            "targets":          ["all","install"]
         }
     ],
     "configurePresets": [
@@ -52,6 +57,26 @@
             "cacheVariables": {
                 "HW":"arduino2560", "CPU":"atmega2560"
             }
+        },
+        {
+            "name": "cortexM",
+            "hidden": true,
+            "inherits": "common",
+            "toolchainFile": "${sourceDir}/cmake/arm-none-eabi.cmake",
+            "cacheVariables": {"OS":"bare"}
+        },
+        {
+            "name": "cortexM4",
+            "hidden": true,
+            "inherits": "cortexM",
+            "cacheVariables": {"ARCH":"cortexM4"}
+        },
+        {
+            "name": "stm32l496g",
+            "hidden": true,
+            "inherits": "cortexM",
+            "toolchainFile": "${sourceDir}/cmake/arm-none-eabi.cmake",
+            "cacheVariables": {"HW":"stm32l496g"}
         }
     ]
 }
