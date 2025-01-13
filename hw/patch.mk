@@ -8,7 +8,6 @@ FIXES = $(subst .patch,.fix,$(PATCH))
 all:
 	dos2unix $(FILES)
 	$(MAKE) -f $(MAKEFILE_LIST) $(FIXES)
-	dos2unix *
 %.fix: %
 	dos2unix $<
 	patch -u $< $<.patch
