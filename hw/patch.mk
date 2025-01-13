@@ -5,7 +5,10 @@ FILES = $(subst .patch,,$(PATCH))
 FIXES = $(subst .patch,.fix,$(PATCH))
 
 .PHONY: all
-all: $(FIXES)
+all:
+	dos2unix $(FILES)
+	$(MAKE) -f $(MAKEFILE_LIST) $(FIXES)
+	dos2unix *
 %.fix: %
 	dos2unix $<
 	patch -u $< $<.patch
