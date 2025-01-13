@@ -69,14 +69,21 @@
             "name": "cortexM4",
             "hidden": true,
             "inherits": "cortexM",
-            "cacheVariables": {"ARCH":"cortexM4"}
+            "cacheVariables": {
+                "ARCH":"cortexM4",
+                "MCPU":"-mcpu=cortex-m4",
+                "MFPU":"-mfpu=fpv4-sp-d16 -mfloat-abi=hard"
+            }
         },
         {
             "name": "stm32l496g",
             "hidden": true,
             "inherits": "cortexM",
             "toolchainFile": "${sourceDir}/cmake/arm-none-eabi.cmake",
-            "cacheVariables": {"HW":"stm32l496g"}
+            "cacheVariables": {
+                "HW":"stm32l496g",
+                "CPU":"STM32L496AGI"
+            }
         }
     ]
 }
