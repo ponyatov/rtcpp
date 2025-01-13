@@ -2,13 +2,11 @@
 
 PATCH = $(wildcard *.patch)
 FILES = $(subst .patch,,$(PATCH))
+FIXES = $(subst .patch,.fix,$(PATCH))
 
 .PHONY: all
-all: $(LDS).fix
-$(LDS).fix: $(LDS)
-	dos2unix * ; sleep 1 ; touch $(FILES)
-	$(MAKE) -f $(MAKEFILE_LIST) $(FILES)
-
+all: $(FIXES)
 %.fix: %
+	dos2unix $<
 	patch -u $< $<.patch
 	touch $@
