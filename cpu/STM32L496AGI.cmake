@@ -1,4 +1,4 @@
 add_definitions(
-	PREFETCH_ENABLE=0
-	STM32L496xx
+	-DPREFETCH_ENABLE=0
+	-DSTM32L496xx
 )

@@ -18,6 +18,7 @@ file(GLOB_RECURSE LD
 )
 file(GLOB_RECURSE A
     "${CWD}/src/*.s*"
+    # CortexM/CubeMX
     "${CWD}/hw/${HW}/*.s"
 )
 file(GLOB_RECURSE C
@@ -27,7 +28,9 @@ file(GLOB_RECURSE C
     "${CWD}/libc/*.c*"
     "${CWD}/rtos/*.c*"
     "${LIB}/led/src/*.c*"
+    # CortexM/CubeMX
     "${CWD}/hw/${HW}/Core/Src/*.c*"
+    "${CWD}/hw/${HW}/Drivers/CMSIS/Device/ST/${SERIES}xx/Source/*.c*"
     "${CWD}/hw/${HW}/Drivers/${SERIES}xx_HAL_Driver/Src/*.c*"
 )
 file(GLOB_RECURSE H
@@ -37,9 +40,11 @@ file(GLOB_RECURSE H
     "${CWD}/inc/libc/*.h*"
     "${CWD}/inc/rtos/*.h*"
     "${LIB}/led/inc/*.h*"
+    # CortexM/CubeMX
     "${CWD}/hw/${HW}/Core/Inc/*.h*"
-    "${CWD}/hw/${HW}/Drivers/${SERIES}xx_HAL_Driver/Inc/*.h*"
+    "${CWD}/hw/${HW}/Drivers/CMSIS/Include/*.h*"
     "${CWD}/hw/${HW}/Drivers/CMSIS/Device/ST/${SERIES}xx/Include/*.h*"
+    "${CWD}/hw/${HW}/Drivers/${SERIES}xx_HAL_Driver/Inc/*.h*"
 )
 
 include_directories(
@@ -49,9 +54,11 @@ include_directories(
     "${CWD}/inc/libc"
     "${CWD}/inc/rtos"
     "${LIB}/led/inc"
+    # CortexM/CubeMX
     "${CWD}/hw/${HW}/Core/Inc"
-    "${CWD}/hw/${HW}/Drivers/${SERIES}xx_HAL_Driver/Inc"
+    "${CWD}/hw/${HW}/Drivers/CMSIS/Include"
     "${CWD}/hw/${HW}/Drivers/CMSIS/Device/ST/${SERIES}xx/Include"
+    "${CWD}/hw/${HW}/Drivers/${SERIES}xx_HAL_Driver/Inc"
 )
 
 message("-- toolchain: " ${CMAKE_CXX_COMPILER} " @ " ${CMAKE_TOOLCHAIN_FILE})
