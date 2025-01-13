@@ -1,1 +1,5 @@
-#!/usr/bin/make
+#!/usr/bin/make -f
+
+.PHONY: all
+all:
+	dos2unix *
