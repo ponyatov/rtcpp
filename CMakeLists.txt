@@ -74,7 +74,7 @@ add_executable(${CMAKE_PROJECT_NAME}
 
 target_link_libraries(${PROJECT_NAME})
 
-set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "${BIN_OUTPUT_NAME}")
+set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME ${BIN_OUTPUT_NAME})
 install(TARGETS ${CMAKE_PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_PREFIX})
 # install(
 #     PROGRAMS ${TMP}/${HW}/${CMAKE_PROJECT_NAME}.elf
@@ -82,5 +82,15 @@ install(TARGETS ${CMAKE_PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_PREFIX})
 #     RENAME ${BIN_OUTPUT_NAME})
 
 add_custom_target(clean_all
-    COMMAND ${CMAKE_BUILD_TOOL} clean
+    COMMAND rm -rf
+        ${CMAKE_INSTALL_PREFIX}/${BIN_OUTPUT_NAME}*
+        ${TMP}/${PROJECT_NAME}*
+        ${CMAKE_BINARY_DIR}
+)
+
+add_custom_target(dfu
+    COMMAND ../elf2dfuse/bin/elf2dfuse
+        ${CMAKE_INSTALL_PREFIX}/${BIN_OUTPUT_NAME}.elf
+        ${CMAKE_INSTALL_PREFIX}/${BIN_OUTPUT_NAME}.dfu
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
 )

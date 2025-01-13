@@ -1,7 +1,7 @@
 # HW ?= pc
 # HW ?= retro
 # HW ?= arduino2560
-HW ?= l496g
+HW ?= stm32l496g
 
 include   hw/$(HW).mk
 include  cpu/$(CPU).mk
