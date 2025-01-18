@@ -25,10 +25,3 @@ BISON_TARGET(${parser} ${yacc} ${TMP}/${parser}.parser.cpp
                   DEFINES_FILE ${TMP}/${parser}.parser.hpp)
 list(APPEND C ${TMP}/${parser}.parser.cpp)
 endforeach()
-
-# message("-- lexer.cpp: " ${FLEX_lex_OUTPUTS})
-
-# message("--    parser: " ${Y} "\t-> " ${yacc})
-
-# BISON_TARGET(yacc ${Y} ${TMP}/${yacc}.parser.cpp
-#           DEFINES_FILE ${TMP}/${yacc}.parser.hpp)
