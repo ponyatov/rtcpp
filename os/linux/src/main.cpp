@@ -5,9 +5,7 @@
 int main(int argc, char *argv[]) {
     setup();
     arg(0, argv[0]);
-    for (int i = 1; i < argc; i++) {
-        arg(i, argv[i]);
-    }
+    for (int i = 1; i < argc; i++) { arg(i, argv[i]); }
     for (;;) loop();
     return 0;
 }

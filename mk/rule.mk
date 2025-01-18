@@ -11,5 +11,5 @@ $(LC): $(LL)
 $(YC): $(YY)
 	$(foreach i,$?,bison -o $(TMP)/$(subst .yacc,.parser.cpp,$(notdir $(i))) $(i))
 
-.PHONY: src
-src: $(LC) $(YC)
+.PHONY: parser
+parser: $(LC) $(YC)

@@ -27,7 +27,6 @@ file(GLOB_RECURSE A
 )
 file(GLOB_RECURSE C
     "${CWD}/src/*.c*"
-    "${CWD}/tmp/*.lexer.c*"
     "${CWD}/hw/${HW}/src/*.c*"
     "${CWD}/cpu/${CPU}/src/*.c*"
     "${CWD}/arch/${ARCH}/src/*.c*"
@@ -61,7 +60,7 @@ file(GLOB_RECURSE H
 )
 
 include_directories(
-    ${INC} ${TMP} ${SRC}
+    ${INC} ${SRC} ${TMP}
     "${CWD}/hw/${HW}/inc"
     "${CWD}/cpu/${CPU}/inc"
     "${CWD}/arch/${ARCH}/inc"
@@ -78,7 +77,7 @@ include_directories(
     "${CWD}/hw/${HW}/Drivers/${SERIES}xx_HAL_Driver/Inc"
 )
 
-# include(syntax)
+include(syntax)
 
 message("-- toolchain: " ${CMAKE_CXX_COMPILER} " @ " ${CMAKE_TOOLCHAIN_FILE})
 message("--    target: " "hw:" ${HW} " cpu:" ${CPU} " arch:" ${ARCH})

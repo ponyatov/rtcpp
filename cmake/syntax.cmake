@@ -25,6 +25,6 @@ message("--    parser: " ${parser} "\t:" ${yacc})
 BISON_TARGET(${parser} ${yacc} ${TMP}/${parser}.parser.cpp
                   DEFINES_FILE ${TMP}/${parser}.parser.hpp)
 #   COMPILE_FLAGS "-p ${parser}_")
-ADD_FLEX_BISON_DEPENDENCY(${parser} ${parser})
+# ADD_FLEX_BISON_DEPENDENCY(${parser} ${parser})
 list(APPEND C ${TMP}/${parser}.parser.cpp)
 endforeach()
