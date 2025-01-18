@@ -1,7 +1,7 @@
 #pragma once
 
 /// @defgroup led led
-/// @ingroup lib
+/// @ingroup libhw
 
 #include "gpio.hpp"
 #include <stdint.h>
