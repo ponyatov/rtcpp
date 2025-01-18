@@ -20,13 +20,4 @@ C += $(shell find lib/* -type f -regex '.+.c$$')
 LL = $(shell find $(SRC) $(LIB) -type f -regex '.+.lex$$')
 LC = $(foreach i,$(LP),$(TMP)/$(subst  .lex,.lexer.cpp,$(notdir $(i))))
 YY = $(shell find $(SRC) $(LIB) -type f -regex '.+.yacc$$')
-YC = $(foreach i,$(LP),$(TMP)/$(subst .yacc,.parser.cpp,$(notdir $(i))))
-
-$(LC): $(LL)
-	$(foreach i,$?,flex  -o $(TMP)/$(subst  .lex,.lexer.cpp,$(notdir $(i))) $(i))
-$(YC): $(YY)
-	$(foreach i,$?,bison -o $(TMP)/$(subst .yacc,.parser.cpp,$(notdir $(i))) $(i))
-
-.PHONY: src
-src: $(LC) $(YC)
-	echo $(YY)
+YC = $(foreach i,$(YY),$(TMP)/$(subst .yacc,.parser.cpp,$(notdir $(i))))

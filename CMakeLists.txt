@@ -27,6 +27,7 @@ file(GLOB_RECURSE A
 )
 file(GLOB_RECURSE C
     "${CWD}/src/*.c*"
+    "${CWD}/tmp/*.lexer.c*"
     "${CWD}/hw/${HW}/src/*.c*"
     "${CWD}/cpu/${CPU}/src/*.c*"
     "${CWD}/arch/${ARCH}/src/*.c*"
@@ -67,6 +68,7 @@ include_directories(
     "${CWD}/lib/core/inc"
     "${CWD}/lib/led/inc"
     "${CWD}/lib/gpio/inc"
+    "${CWD}/lib/cli/inc"
     # CortexM/CubeMX
     "${CWD}/hw/${HW}/Core/Inc"
     "${CWD}/hw/${HW}/Drivers/CMSIS/Include"
@@ -74,7 +76,7 @@ include_directories(
     "${CWD}/hw/${HW}/Drivers/${SERIES}xx_HAL_Driver/Inc"
 )
 
-# include(syntax)
+include(syntax)
 
 message("-- toolchain: " ${CMAKE_CXX_COMPILER} " @ " ${CMAKE_TOOLCHAIN_FILE})
 message("--    target: " "hw:" ${HW} " cpu:" ${CPU} " arch:" ${ARCH})

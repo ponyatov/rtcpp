@@ -13,5 +13,7 @@ class LED {
     Color color;
 
    public:
-    LED(Pin pin, Color c);
+    LED(Pin pin = 0, Color c = Color::GREEN);
 };
+
+extern LED led0;
