@@ -48,6 +48,12 @@
     "clang-format.fallbackStyle":  "Google",
     "clang-format.style":          "file",
 
+    // JavaScript
+    "[javascript]": {
+        "editor.defaultFormatter": "xaver.clang-format",
+        "editor.formatOnSave":     false
+    },
+
     // C++
     "[c]": {
         "editor.defaultFormatter": "xaver.clang-format",

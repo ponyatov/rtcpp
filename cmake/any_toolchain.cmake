@@ -9,36 +9,29 @@ set(CMAKE_CXX_COMPILER_ID     GNU)
 set(CMAKE_C_COMPILER   ${TOOLCHAIN_PREFIX}-gcc)
 set(CMAKE_ASM_COMPILER ${CMAKE_C_COMPILER})
 set(CMAKE_CXX_COMPILER ${TOOLCHAIN_PREFIX}-g++)
-set(CMAKE_LINKER       ${TOOLCHAIN_PREFIX}-g++)
+set(CMAKE_LINKER       ${TOOLCHAIN_PREFIX}-gzz)
 set(CMAKE_OBJCOPY      ${TOOLCHAIN_PREFIX}-objcopy)
 set(CMAKE_SIZE         ${TOOLCHAIN_PREFIX}-size)
-
-string(TOUPPER ${HW}     HW_)
-string(TOUPPER ${CPU}   CPU_)
-string(TOUPPER ${ARCH} ARCH_)
-string(TOUPPER ${OS}     OS_)
-
-add_compile_options(
-    "-D${HW_}" "-D${CPU_}" "-D${ARCH_}" "-D${OS_}"
-    # "-mmcu=${CPU}"
-    # "-fno-rtti" "-fno-exceptions" "-fno-threadsafe-statics"
-    # "-ffunction-sections" "-fdata-sections"
-)
 
 include(  os/${OS}.cmake  )
 include(arch/${ARCH}.cmake)
 include( cpu/${CPU}.cmake )
 include(  hw/${HW}.cmake  )
 
+string(TOUPPER ${HW}   HW_  )
+string(TOUPPER ${CPU}  CPU_ )
+string(TOUPPER ${ARCH} ARCH_)
+string(TOUPPER ${OS}   OS_  )
+
+add_compile_options(
+    "-D${HW_}" "-D${CPU_}" "-D${ARCH_}" "-D${OS_}"
+    -Wall -Wextra -Wpedantic
+    $<$<CONFIG:Debug>:-DDEBUG>
+)
+
 if(CMAKE_BUILD_TYPE MATCHES Debug)
-    set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS}   -O0 -g3")
-    # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0 -g3")
+    add_compile_options(-O0 -g3)
 endif()
 if(CMAKE_BUILD_TYPE MATCHES Release)
-    set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS}   -Os -g0")
-    # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Os -g0")
+    add_compile_options(-Os -g0)
 endif()
-
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${WFLAGS} ${FSECTIONS}")
-
-set(CMAKE_C_LINK_FLAGS "${CMAKE_C_LINK_FLAGS} -Wl,--print-memory-usage")

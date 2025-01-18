@@ -25,10 +25,7 @@
             "includePath": [
                 "${workspaceFolder}/inc/**",
                 "${workspaceFolder}/tmp/**",
-                "${workspaceFolder}/src/**",
-                "${workspaceFolder}/os/bare/inc/**",
-                "${workspaceFolder}/lib/**",
-                "${workspaceFolder}/hw/stm32l496g/Core/Inc/"
+                "${workspaceFolder}/src/**"
             ],
             "compilerArgs": [
                 "-mthumb -mcpu=cortex-m4",

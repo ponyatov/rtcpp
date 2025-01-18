@@ -7,13 +7,8 @@
             "targets":          ["all","install"]
         },
         {
-            "name":              "mega2560",
-            "configurePreset":   "mega2560",
-            "targets":          ["all","install"]
-        },
-        {
-            "name":              "stm32l496g",
-            "configurePreset":   "stm32l496g",
+            "name":              "l496disco",
+            "configurePreset":   "l496disco",
             "targets":          ["all","install"]
         }
     ],
@@ -24,11 +19,9 @@
             "binaryDir": "${sourceDir}/tmp/${presetName}",
             "generator": "Unix Makefiles",
             "cacheVariables": {
-                "CMAKE_VERBOSE_MAKEFILE": false,
+                "CMAKE_VERBOSE_MAKEFILE": true,
                 "CMAKE_INSTALL_PREFIX": "${sourceDir}/bin",
-                "CMAKE_BUILD_TYPE": "Debug",
-                "CMAKE_C_STANDARD"  : "17",
-                "CMAKE_CXX_STANDARD": "17"
+                "CMAKE_BUILD_TYPE": "Debug"
             }
         },
         {
@@ -45,7 +38,6 @@
             "name": "avr",
             "hidden": true,
             "inherits": "common",
-            "description": "AVR8 target",
             "toolchainFile": "${sourceDir}/cmake/avr.cmake",
             "cacheVariables": {
                 "ARCH":"avr", "OS":"bare"

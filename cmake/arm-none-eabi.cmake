@@ -1,35 +1,34 @@
 set(CMAKE_SYSTEM_NAME      Generic)
 set(CMAKE_SYSTEM_PROCESSOR arm)
 set(TOOLCHAIN_PREFIX       arm-none-eabi)
+set(CMAKE_CROSS_COMPILING  true)
 
 include(cmake/any_toolchain.cmake)
 
-# Validate that STM32CubeMX code is compatible with C standard
-if(CMAKE_C_STANDARD LESS 11)
-    message(ERROR "Generated code requires C11 or higher")
-endif()
-
-set(CMAKE_EXECUTABLE_SUFFIX_ASM .elf)
-set(CMAKE_EXECUTABLE_SUFFIX_C   .elf)
-set(CMAKE_EXECUTABLE_SUFFIX_CXX .elf)
+add_compile_options(
+    -mthumb
+    -ffunction-sections -fdata-sections
+    -DCORTEX -D${SERIES}
+    $<$<COMPILE_LANGUAGE:CXX>:-fno-rtti>
+    $<$<COMPILE_LANGUAGE:CXX>:-fno-exceptions>
+    $<$<COMPILE_LANGUAGE:CXX>:-fno-threadsafe-statics>
+    $<$<COMPILE_LANGUAGE:ASM>:-x$<SEMICOLON>assembler-with-cpp>
+    $<$<COMPILE_LANGUAGE:ASM>:-MMD>
+    $<$<COMPILE_LANGUAGE:ASM>:-MP>
+)
 
 set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
 
-# MCU specific flags
-set(TARGET_FLAGS "${MCPU} ${MFPU}")
+add_link_options(
+    -mthumb
+    -T ${CMAKE_SOURCE_DIR}/hw/${HW}/${CPU_}x_FLASH.ld
+    --specs=nano.specs
+    -Wl,--start-group -lc -lm -Wl,--end-group
+    -Wl,--start-group -lstdc++ -lsupc++ -Wl,--end-group
+    -Wl,-Map=${CMAKE_PROJECT_NAME}.map -Wl,--gc-sections
+    -Wl,--print-memory-usage
+)
 
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${TARGET_FLAGS}")
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${WFLAGS} ${FSECTIONS}")
-
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${CMAKE_C_FLAGS}")
-set(CMAKE_ASM_FLAGS "${CMAKE_CXX_FLAGS} ${CMAKE_C_FLAGS}")
-set(CMAKE_ASM_FLAGS "${CMAKE_CXX_FLAGS} -x assembler-with-cpp -MMD -MP")
-
-set(CMAKE_C_LINK_FLAGS "${CMAKE_C_LINK_FLAGS} -T \"${CMAKE_SOURCE_DIR}/hw/${HW}/${CPU}x_FLASH.ld\"")
-set(CMAKE_C_LINK_FLAGS "${CMAKE_C_LINK_FLAGS} -Wl,--start-group -lc -lm -Wl,--end-group")
-
-# set(CMAKE_C_LINK_FLAGS "${CMAKE_C_LINK_FLAGS} --specs=nano.specs") ???error???
-set(CMAKE_C_LINK_FLAGS "${CMAKE_C_LINK_FLAGS} -Wl,-Map=${CMAKE_PROJECT_NAME}.map -Wl,--gc-sections")
-
-set(CMAKE_CXX_LINK_FLAGS "${CMAKE_CXX_LINK_FLAGS} ${CMAKE_C_LINK_FLAGS}")
-set(CMAKE_CXX_LINK_FLAGS "${CMAKE_CXX_LINK_FLAGS} -Wl,--start-group -lstdc++ -lsupc++ -Wl,--end-group")
+set(CMAKE_EXECUTABLE_SUFFIX_ASM ".elf")
+set(CMAKE_EXECUTABLE_SUFFIX_C   ".elf")
+set(CMAKE_EXECUTABLE_SUFFIX_CXX ".elf")

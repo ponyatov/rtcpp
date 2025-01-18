@@ -1,5 +1,5 @@
 #pragma once
 
 /// @defgroup bare bare
-/// @brief bare-metal build
+/// @brief bare-metal
 /// @ingroup os
