@@ -57,7 +57,10 @@ include_directories(
     "${CWD}/cpu/${CPU}/inc"
     "${CWD}/arch/${ARCH}/inc"
     "${CWD}/os/${OS}/inc"
+    # libs
     "${CWD}/lib/core/inc"
+    "${CWD}/lib/led/inc"
+    "${CWD}/lib/gpio/inc"
     # CortexM/CubeMX
     "${CWD}/hw/${HW}/Core/Inc"
     "${CWD}/hw/${HW}/Drivers/CMSIS/Include"

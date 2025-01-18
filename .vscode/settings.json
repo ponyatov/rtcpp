@@ -26,6 +26,10 @@
         "ref/**": true,
     },
     "files.associations": {
+        "*.openocd": "properties",
+        "*.gdb*": "properties",
+        "*.ld": "linkerscript",
+        "*.ld.fix": "linkerscript"
     },
 
     // editor
@@ -64,7 +68,7 @@
         "editor.formatOnSave":     false
     },
     // "C_Cpp.intelliSenseEngine": "Tag Parser",
-    // "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
 
     // cmake
     "cmake.sourceDirectory"  : "${workspaceFolder}",
@@ -74,5 +78,5 @@
     "cmake.configureSettings": {
         // "CMAKE_VERBOSE_MAKEFILE": true
     },
-    "cmake.useCMakePresets"     : "always"
+    "cmake.useCMakePresets"     : "always",
 }
