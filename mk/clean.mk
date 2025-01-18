@@ -1,2 +1,2 @@
 clean:
-	cmake --build --preset $(HW) --target clean_all
+	cmake --build --preset linux --target clean_all

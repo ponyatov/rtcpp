@@ -1,3 +1,5 @@
+#pragma once
+
 /// @defgroup cli cli
 /// @brief CLI: Command Line Interface
 
@@ -10,17 +12,18 @@
 
 /// @name lexer
 /// @{
-extern int cli_lex();   ///< lexer
-extern int cli_lineno;  //< current line
-extern char* cli_text;  //< lexeme value
-extern char* cli_file;  ///< script file name
-extern FILE* cli_in;    ///< script file handler
+extern int yylex();   ///< lexer
+extern int yylineno;  //< current line
+extern char* yytext;  //< lexeme value
+extern char* yyfile;  ///< script file name
+extern FILE* yyin;    ///< script file handler
 /// @}
 
 /// @name parser
 /// @{
-extern int cli_parse();                  ///< parser
-extern void cli_error(const char* msg);  ///< syntax error calback
+extern int yyparse();                  ///< parser
+extern void yyerror(const char* msg);  ///< syntax error calback
+#include "cli.parser.hpp"
 /// @}
 
 /// @}

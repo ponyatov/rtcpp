@@ -7,13 +7,6 @@ int main(int argc, char *argv[]) {
     arg(0, argv[0]);
     for (int i = 1; i < argc; i++) {
         arg(i, argv[i]);
-#ifdef CLI
-        yyfile = argv[i];
-        assert(yyin = fopen(argv[i], "r"));
-        yyparse();
-        fclose(yyin);
-        yyfile = nullptr;
-#endif
     }
     for (;;) loop();
     return 0;

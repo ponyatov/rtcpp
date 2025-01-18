@@ -1,7 +1,4 @@
-%define api.prefix {cli_}
-
 %{
-#include "app.hpp"
 #include "cli.hpp"
 %}
 

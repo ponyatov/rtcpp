@@ -18,6 +18,6 @@ C += $(shell find lib/* -type f -regex '.+\.cpp$$')
 C += $(shell find lib/* -type f -regex '.+\.c$$')
 
 LL = $(shell find $(SRC) $(LIB) -type f -regex '.+\.lex$$')
-LC = $(foreach i,$(LP),$(TMP)/$(subst  .lex,.lexer.cpp,$(notdir $(i))))
+LC = $(foreach i,$(LL),$(TMP)/$(subst  .lex,.lexer.cpp,$(notdir $(i))))
 YY = $(shell find $(SRC) $(LIB) -type f -regex '.+\.yacc$$')
 YC = $(foreach i,$(YY),$(TMP)/$(subst .yacc,.parser.cpp,$(notdir $(i))))

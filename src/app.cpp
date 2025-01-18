@@ -6,11 +6,11 @@ void setup() {  //
 
 void arg(int argc, char *argv) {  //
     fprintf(stderr, "arg[%i] = <%s>\n", argc, argv);
-    cli_file = argv;
-    assert(cli_in = fopen(cli_file, "r"));
-    cli_parse();
-    fclose(cli_in);
-    cli_file = nullptr;
+    yyfile = argv;
+    assert(yyin = fopen(yyfile, "r"));
+    yyparse();
+    fclose(yyin);
+    yyfile = nullptr;
 }
 
 void loop() {  //

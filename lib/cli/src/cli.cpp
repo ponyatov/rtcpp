@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "cli.hpp"
 
-void cli_error(const char *msg) {  //
-    fprintf(stderr, "\n%s:%i %s [%s]\n\n", cli_file, cli_lineno, msg, cli_text);
+void yyerror(const char *msg) {  //
+    fprintf(stderr, "\n%s:%i %s [%s]\n\n", yyfile, yylineno, msg, yytext);
     exit(-1);
 }
