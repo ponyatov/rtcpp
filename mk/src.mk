@@ -14,6 +14,8 @@ H += $(wildcard   os/$(OS)/inc/*.h*)
 
 H += $(shell find lib/* -type f -regex '.+.hpp$$')
 H += $(shell find lib/* -type f -regex '.+.h$$')
+C += $(shell find lib/* -type f -regex '.+.cpp$$')
+C += $(shell find lib/* -type f -regex '.+.c$$')
 
 LL = $(shell find $(SRC) $(LIB) -type f -regex '.+.lex$$')
 LC = $(foreach i,$(LP),$(TMP)/$(subst  .lex,.lexer.cpp,$(notdir $(i))))

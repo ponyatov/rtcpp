@@ -1,5 +1,5 @@
 # rule
-$(BIN)/$(BINFILE): $(C) $(H)
+$(BIN)/$(BINFILE): $(C) $(H) $(LC) $(YC)
 	cmake         --preset linux
 	cmake --build --preset linux -j
 
