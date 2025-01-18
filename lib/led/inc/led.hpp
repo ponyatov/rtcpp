@@ -12,6 +12,6 @@ class LED {
     Pin pin;
     Color color;
 
-    //    public:
-    //     LED(Pin pin, Color c);
+   public:
+    LED(Pin pin, Color c);
 };

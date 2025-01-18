@@ -12,11 +12,19 @@ H += $(wildcard arch/$(ARCH)/inc/*.h*)
 C += $(wildcard   os/$(OS)/src/*.c*)
 H += $(wildcard   os/$(OS)/inc/*.h*)
 
-CP += $(TMP)/$(MODULE).parser.cpp $(TMP)/$(MODULE).lexer.cpp
-HP += $(TMP)/$(MODULE).parser.hpp
+H += $(shell find lib/* -type f -regex '.+.hpp$$')
+H += $(shell find lib/* -type f -regex '.+.h$$')
 
-C += $(wildcard src/libc/*.c*)
-H += $(wildcard inc/libc/*.h*)
+LL = $(shell find $(SRC) $(LIB) -type f -regex '.+.lex$$')
+LC = $(foreach i,$(LP),$(TMP)/$(subst  .lex,.lexer.cpp,$(notdir $(i))))
+YY = $(shell find $(SRC) $(LIB) -type f -regex '.+.yacc$$')
+YC = $(foreach i,$(LP),$(TMP)/$(subst .yacc,.parser.cpp,$(notdir $(i))))
 
-C += $(wildcard lib/led/src/*.c*)
-H += $(wildcard lib/led/inc/*.h*)
+$(LC): $(LL)
+	$(foreach i,$?,flex  -o $(TMP)/$(subst  .lex,.lexer.cpp,$(notdir $(i))) $(i))
+$(YC): $(YY)
+	$(foreach i,$?,bison -o $(TMP)/$(subst .yacc,.parser.cpp,$(notdir $(i))) $(i))
+
+.PHONY: src
+src: $(LC) $(YC)
+	echo $(YY)
