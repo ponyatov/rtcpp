@@ -1,6 +1,9 @@
+%option prefix="cli_"
+
 %{
 #include "app.hpp"
-char *yyfile = nullptr;
+#include "cli.hpp"
+char *cli_file = nullptr;
 %}
 
 %option noyywrap yylineno
@@ -12,4 +15,4 @@ n [0-9]
 #[^\n]*     {}  // line comment
 [ \t\r\n]+  {}  // drop spaces
 
-.           {yyerror("");}  // any undetected char
+.           {cli_error("");}  // any undetected char

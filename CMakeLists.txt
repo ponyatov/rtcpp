@@ -34,6 +34,7 @@ file(GLOB_RECURSE C
     "${CWD}/os/${OS}/src/*.c*"
     # lib
     "${CWD}/lib/core/src/*.c*"
+    "${CWD}/lib/cli/src/*.c*"
     "${CWD}/lib/led/src/*.c*"
     "${CWD}/lib/gpio/src/*.c*"
     # CortexM/CubeMX
@@ -49,8 +50,9 @@ file(GLOB_RECURSE H
     "${CWD}/os/${OS}/inc/*.h*"
     # lib
     "${CWD}/lib/core/inc/*.h*"
+    "${CWD}/lib/cli/src/*.h*"
     "${CWD}/lib/led/inc/*.h*"
-    "${CWD}/lib/led/gpio/*.h*"
+    "${CWD}/lib/gpio/inc/*.h*"
     # CortexM/CubeMX
     "${CWD}/hw/${HW}/Core/Inc/*.h*"
     "${CWD}/hw/${HW}/Drivers/CMSIS/Include/*.h*"
@@ -66,9 +68,9 @@ include_directories(
     "${CWD}/os/${OS}/inc"
     # libs
     "${CWD}/lib/core/inc"
+    "${CWD}/lib/cli/inc"
     "${CWD}/lib/led/inc"
     "${CWD}/lib/gpio/inc"
-    "${CWD}/lib/cli/inc"
     # CortexM/CubeMX
     "${CWD}/hw/${HW}/Core/Inc"
     "${CWD}/hw/${HW}/Drivers/CMSIS/Include"

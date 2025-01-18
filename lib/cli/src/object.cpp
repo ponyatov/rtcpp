@@ -10,4 +10,4 @@ Object::Object() {
 
 Object::~Object() {}
 
-void Object::dump() { fprintf(stderr, "object:\n"); }
+// void Object::dump() { fprintf(stderr, "object:\n"); }

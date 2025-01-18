@@ -18,6 +18,14 @@ FLEX_TARGET(${lexer} ${lex} ${TMP}/${lexer}.lexer.cpp)
 list(APPEND C ${TMP}/${lexer}.lexer.cpp)
 endforeach()
 
+foreach(yacc ${Y})
+get_filename_component(parser ${yacc} NAME_WE)
+message("--    parser: " ${parser} "\t:" ${yacc})
+BISON_TARGET(${parser} ${yacc} ${TMP}/${parser}.parser.cpp
+                  DEFINES_FILE ${TMP}/${parser}.parser.hpp)
+list(APPEND C ${TMP}/${parser}.parser.cpp)
+endforeach()
+
 # message("-- lexer.cpp: " ${FLEX_lex_OUTPUTS})
 
 # message("--    parser: " ${Y} "\t-> " ${yacc})

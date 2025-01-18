@@ -1,10 +1,13 @@
+%define api.prefix {cli_}
+
 %{
 #include "app.hpp"
+#include "cli.hpp"
 %}
 
 %defines %union { char c; int n; }
 
-%token <o> INT
+%token <n> INT
 
 %%
 syntax: | syntax ex

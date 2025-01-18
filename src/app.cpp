@@ -1,16 +1,16 @@
 #include "app.hpp"
-#include "syntax.hpp"
+#include "cli.hpp"
 
 void setup() {  //
 }
 
 void arg(int argc, char *argv) {  //
     fprintf(stderr, "arg[%i] = <%s>\n", argc, argv);
-    yyfile = argv;
-    assert(yyin = fopen(yyfile, "r"));
-    yyparse();
-    fclose(yyin);
-    yyfile = nullptr;
+    cli_file = argv;
+    assert(cli_in = fopen(cli_file, "r"));
+    cli_parse();
+    fclose(cli_in);
+    cli_file = nullptr;
 }
 
 void loop() {  //
