@@ -1,5 +1,5 @@
 /// @defgroup pillF030 pillF030
-/// @brief @ref stm32f030f4p 6
+/// @brief `cpu:` @ref stm32f030f4p 6
 /// @ingroup hw
 /// @details
 /// -

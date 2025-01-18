@@ -1,4 +1,5 @@
 /// @defgroup libc libc
+/// @brief standard C library port (newlib/picolibc-based)
 /// @ingroup core
 /// @{
 

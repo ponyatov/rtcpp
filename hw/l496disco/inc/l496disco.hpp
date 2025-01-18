@@ -1,6 +1,7 @@
 #pragma once
 
-/// @defgroup stm32l496g stm32l496g
+/// @defgroup l496disco l496disco
+/// @brief `stm32l496g-disco` `cpu:` @ref stm32l496g
 /// @ingroup hw
 
 #include "sram.h"

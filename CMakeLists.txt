@@ -31,7 +31,10 @@ file(GLOB_RECURSE C
     "${CWD}/cpu/${CPU}/src/*.c*"
     "${CWD}/arch/${ARCH}/src/*.c*"
     "${CWD}/os/${OS}/src/*.c*"
+    # lib
     "${CWD}/lib/core/src/*.c*"
+    "${CWD}/lib/led/src/*.c*"
+    "${CWD}/lib/gpio/src/*.c*"
     # CortexM/CubeMX
     "${CWD}/hw/${HW}/Core/Src/*.c*"
     "${CWD}/hw/${HW}/Drivers/CMSIS/Device/ST/${SERIES}xx/Source/*.c*"
@@ -43,7 +46,10 @@ file(GLOB_RECURSE H
     "${CWD}/cpu/${CPU}/inc/*.h*"
     "${CWD}/arch/${ARCH}/inc/*.h*"
     "${CWD}/os/${OS}/inc/*.h*"
-    "${CWD}/lib/core/src/*.h*"
+    # lib
+    "${CWD}/lib/core/inc/*.h*"
+    "${CWD}/lib/led/inc/*.h*"
+    "${CWD}/lib/led/gpio/*.h*"
     # CortexM/CubeMX
     "${CWD}/hw/${HW}/Core/Inc/*.h*"
     "${CWD}/hw/${HW}/Drivers/CMSIS/Include/*.h*"

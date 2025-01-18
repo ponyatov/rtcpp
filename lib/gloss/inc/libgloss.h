@@ -1,5 +1,5 @@
 /// @defgroup libgloss libgloss
-/// @brief platform-specific wrappers for @ref libc
+/// @brief @ref libc : platform-specific wrappers
 /// @ingroup libc
 /// @{
 
