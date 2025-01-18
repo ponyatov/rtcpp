@@ -8,12 +8,19 @@ file(GLOB Y CONFIGURE_DEPENDS ${SRC}/lib/cli/src/*.yacc)
 file(GLOB_RECURSE L ${SRC}/lib *.lex)
 file(GLOB_RECURSE Y ${SRC}/lib *.yacc)
 
-# get_filename_component(lex  ${L} NAME_WE)
+# 
 # get_filename_component(yacc ${Y} NAME_WE)
 
-message("--     lexer: " ${L} "\t-> " ${lex})
-message("--    parser: " ${Y} "\t-> " ${yacc})
+foreach(lex ${L})
+get_filename_component(lexer ${lex} NAME_WE)
+message("--     lexer: " ${lexer} "\t:" ${lex})
+FLEX_TARGET(${lexer} ${lex} ${TMP}/${lexer}.lexer.cpp)
+list(APPEND C ${TMP}/${lexer}.lexer.cpp)
+endforeach()
 
-#  FLEX_TARGET(lex  ${L} ${TMP}/${lex}.lexer.cpp)
+# message("-- lexer.cpp: " ${FLEX_lex_OUTPUTS})
+
+# message("--    parser: " ${Y} "\t-> " ${yacc})
+
 # BISON_TARGET(yacc ${Y} ${TMP}/${yacc}.parser.cpp
 #           DEFINES_FILE ${TMP}/${yacc}.parser.hpp)
