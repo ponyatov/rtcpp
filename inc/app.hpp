@@ -1,5 +1,7 @@
 #pragma once
 
+#include "os.hpp"
+
 /// @defgroup app app
 /// @brief application-specific components
 /// @{

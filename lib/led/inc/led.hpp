@@ -9,9 +9,9 @@
 enum class Color : uint8_t { RED, GREEN, YELLOW, BLUE, WHITE };
 
 class LED {
-//     Pin pin;
-//     Color color;
+    //     Pin pin;
+    //     Color color;
 
-//    public:
-//     LED(Pin pin, Color c);
+    //    public:
+    //     LED(Pin pin, Color c);
 };
