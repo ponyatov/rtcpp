@@ -14,7 +14,7 @@ struct Cell {
     union {
         int n;    ///< integer
         float f;  ///< float
-        void* p;  ///< pointer
+        void* p;  ///< raw pointer
     } v;          ///< value
 };
 
