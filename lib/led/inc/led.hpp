@@ -20,7 +20,7 @@ class LED : public Object {
 
    public:
     LED(Pin *pin, Color color = Color::GREEN, LEDState state = LEDState::OFF);
-    void dump(char divider = 'n');
+    void dump(char divider = '\n');
     /// @name power/activity control
     /// @{
     void on();   ///< switch on

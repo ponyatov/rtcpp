@@ -5,23 +5,19 @@
     #include "cli.hpp"
 %}
 
-%defines %union { char c; int n; float f; void *p; }
+%defines %union { char c; int n; void *p; }
 
 %token <n> DEC HEX OCT BIN
-%token <f> NUM
+%type  <n> num
 /* %token <p> PTR */
 %token END LED ON OFF
 
 %%
 syntax: | syntax ex { vm.dump(); }
 
-ex : num
-   | END     { std::cerr << std::endl; }
-   | LED ON  { led.on();  }
-   | LED OFF { led.off(); }
+ex : END     { std::cerr << std::endl;  }   // end of file
+   | num     { vm.push($1);             }   // number: push on stack
+   | LED ON  { led.on();                }   // \ LED control
+   | LED OFF { led.off();               }   // /
 
-num : DEC { vm.push($1); }
-    | HEX { vm.push($1); }
-    | OCT { vm.push($1); }
-    | BIN { vm.push($1); }
-    | NUM { vm.push($1); }
+num : DEC | HEX | OCT | BIN

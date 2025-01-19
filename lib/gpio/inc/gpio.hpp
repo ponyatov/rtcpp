@@ -12,7 +12,7 @@ class Port : public Object {
 
    public:
     Port(char name);
-    void dump(char divider = 'n');
+    void dump(char divider = '\n');
 };
 
 extern Port A;
@@ -34,7 +34,7 @@ class Pin : public Object {
 
    public:
     Pin(Port *port, PinIndex index, PinState state = PinState::INPUT);
-    void dump(char divider = 'n');
+    void dump(char divider = '\n');
     /// @name power/activity control
     /// @{
     void on();   ///< switch on
