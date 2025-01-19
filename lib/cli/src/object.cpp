@@ -8,11 +8,16 @@ Object::Object() : ref(0) {}
 //     pool = this;
 // }
 
-Object::~Object() { assert(ref == 0); }
+Object::~Object() {}
 
-void Object::dump(char divider) {  //
-    std::cerr << tag() << ':' << val() << divider;
+std::string Object::dump(char divider) {  //
+    std::ostringstream os;
+    os << tag() << ':' << val() << divider;
+    return os.str();
 }
 
 std::string Object::tag() { return "object"; }
 std::string Object::val() { return ""; }
+
+void Object::on() {}
+void Object::off() {}

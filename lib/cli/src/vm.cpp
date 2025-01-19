@@ -1,40 +1,39 @@
 #include "vm.hpp"
-#include <stdio.h>
-#include <assert.h>
-#include "type.hpp"
-#include "int.hpp"
-#include <sstream>
+#include "os.hpp"
 
-const char VM::tag[] = "vm";
+VM::VM() { Dp = 0; }
 
-VM::VM() : Object() { Dp = 0; }
-
+std::string VM::tag() { return "vm"; }
 std::string VM::val() {
-    std::ostringstream os("[ ");
-    os << ']';
+    std::ostringstream os;
+    os << " [ ";
+    for (size_t i = 0; i < Dp; i++) {  //
+        Cell c = D[i];
+        switch (c.t) {
+            case Type::Int:
+                os << "int:" << std::dec << c.v.n << ' ';
+                break;
+            case Type::Hex:
+                os << "hex:" << std::hex << c.v.n << ' ';
+                break;
+            case Type::Oct:
+                os << "oct:" << std::oct << c.v.n << ' ';
+                break;
+            case Type::Bin:
+                os << "bin:" << c.v.n << ' ';
+                break;
+            case Type::Num:
+                os << "num:" << c.v.f << ' ';
+                break;
+            case Type::Obj:
+                os << c.v.o->dump(' ');
+                break;
+            default:
+                os << "???:" << c.v.n << ' ';
+        }
+    }
+    os << "]";
     return os.str();
-    // for (size_t i = 0; i < Dp; i++) {  //
-    //     Cell c = D[i];
-    //     switch (c.t) {
-    //         case Type::Int:
-    //             std::cerr << "int:" << c.v.n << ' ';
-    //             break;
-    //         case Type::Hex:
-    //             std::cerr << "hex:" << c.v.n << ' ';
-    //             break;
-    //         case Type::Oct:
-    //             std::cerr << "oct:" << c.v.n << ' ';
-    //             break;
-    //         case Type::Bin:
-    //             std::cerr << "bin:" << c.v.n << ' ';
-    //             break;
-    //         case Type::Float:
-    //             fprintf(stderr, "num:%f ", c.v.f);
-    //             break;
-    //         default:
-    //             fprintf(stderr, "???:%i ", c.v.n);
-    //     }
-    // }
 }
 
 void VM::push(int n) {  //
@@ -44,6 +43,11 @@ void VM::push(int n) {  //
 void VM::push(Cell c) {
     D[Dp++] = c;
     assert(Dp < Dsz);
+}
+
+Cell VM::pop() {
+    assert(Dp > 0);
+    return D[--Dp];
 }
 
 VM vm;

@@ -1,7 +1,5 @@
 #include "led.hpp"
 
-const char LED::tag[] = "led";
-
 LED::LED(Pin *p, Color c) {
     pin = p;
     color = c;
@@ -11,14 +9,19 @@ LED led(&B5);
 
 void LED::on() {
     state = true;
-    dump();
+    pin->on();
+    std::cerr << dump(' ') << "/ on" << std::endl;
 }
 
 void LED::off() {
     state = false;
-    dump();
+    pin->off();
+    std::cerr << dump(' ') << "/ off" << std::endl;
 }
 
-void LED::dump(char divider) {  //
-    std::cerr << tag << ':' << pin->val() << ';' << val() << divider;
+std::string LED::tag() { return "led"; }
+std::string LED::val() {
+    std::ostringstream os;
+    os << state;
+    return os.str();
 }

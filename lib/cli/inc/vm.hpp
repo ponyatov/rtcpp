@@ -2,7 +2,7 @@
 
 #include "object.hpp"
 #include "type.hpp"
-#include <iostream>
+#include "os.hpp"
 
 /// @defgroup vm vm
 /// @ingroup cli
@@ -13,7 +13,6 @@ class Cmd : public Object {};
 
 /// @brief Virtual Machine
 class VM : public Object {
-    static const char tag[];
     /// @name data stack
     /// @{
     static const size_t Dsz = 0x10;  ///< @brief size
@@ -22,13 +21,14 @@ class VM : public Object {
 
     /// @}
    public:
-    VM();  ///< @brief construct & initialize
-    // void dump(char divider = '\n');  ///< @brief print state: @ref D
-    std::string val();  ///< @ref D dump
+    VM();                       ///< @brief construct & initialize
+    virtual std::string tag();  ///< @return type/class tag
+    virtual std::string val();  ///< @returns @rev value in string
     /// @name data stack
     /// @{
     void push(int n);   ///< `( -- n)` add integer to top of stack
     void push(Cell c);  ///< `( -- o)`
+    Cell pop();         ///< `( o -- )` pop top element
     /// @}
 };
 
