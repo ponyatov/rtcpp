@@ -10,13 +10,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
+#include <string.h>
 /// @}
 
 /// @name STL
 /// @{
-#include <iostream>
-#include <sstream>
-#include <string>
+// #include <iostream>
+// #include <sstream>
+// #include <string>
 /// @}
 
 /// @}

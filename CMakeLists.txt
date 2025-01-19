@@ -49,7 +49,7 @@ file(GLOB_RECURSE H
     "${CWD}/os/${OS}/inc/*.h*"
     # lib
     "${CWD}/lib/core/inc/*.h*"
-    "${CWD}/lib/cli/src/*.h*"
+    "${CWD}/lib/cli/inc/*.h*"
     "${CWD}/lib/led/inc/*.h*"
     "${CWD}/lib/gpio/inc/*.h*"
     # CortexM/CubeMX
