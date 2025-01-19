@@ -30,7 +30,8 @@ extern Port D;
 typedef uint8_t PinIndex;
 
 /// @brief @ref Pin i/o mode
-enum class PinState { HIGH, LOW, INPUT };
+enum class PinState : uint8_t { HIGH, LOW, INPUT };
+extern const char *pinstate_[];
 
 /// @brief @ref gpio pin
 class Pin : public Object {

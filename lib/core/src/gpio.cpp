@@ -14,12 +14,14 @@ Port B("B");
 Port C("C");
 Port D("D");
 
+const char *pinstate_[] = {"high", "low", "input"};
+
 Pin::Pin(Port *port, PinIndex index) : port(port), index(index) {}
 
 std::string Pin::tag() { return "pin"; }
 std::string Pin::val() {
     std::ostringstream os;
-    os << index;
+    os << port->val() << (int)index << ':' << pinstate_[(int)state];
     return os.str();
 }
 
