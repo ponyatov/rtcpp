@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 /// @defgroup object object
-/// @ingroup cli
+/// @ingroup type
 /// @{
 
 class Object {

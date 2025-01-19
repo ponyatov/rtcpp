@@ -1,4 +1,7 @@
+#pragma once
+
 #include "object.hpp"
+#include "type.hpp"
 
 /// @defgroup vm vm
 /// @ingroup cli
@@ -11,19 +14,20 @@ class Cmd : public Object {};
 class VM : public Object {
     /// @name data stack
     /// @{
-    static const size_t Dsz = 0x10;  ///< size
-    int D[Dsz];                      ///< data stack
-    size_t Dp;                       ///< data stack pointer
+    static const size_t Dsz = 0x10;  ///< @brief size
+    Cell D[Dsz];                     ///< @brief data stack
+    size_t Dp;                       ///< @brief data stack pointer
 
     /// @}
    public:
-    VM() { Dp = 0; }
-    void dump();
+    VM();         ///< @brief construct & initialize
+    void dump();  ///< @brief print state: @ref D
     /// @name data stack
     /// @{
-    void push(int n);  ///< `( -- n)` add integer to top of stack
+    void push(int n);   ///< `( -- n)` add integer to top of stack
+    void push(Cell c);  ///< `( -- o)`
     /// @}
 };
 
-extern VM vm;
+extern VM vm;  ///< single global @ref cli @ref VM
 /// @}
