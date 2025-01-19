@@ -1,12 +1,27 @@
 #include "gpio.hpp"
+#include "os.hpp"
 
-Port::Port(char name) : name(name) {}
+Port::Port(std::string name) : name(name) {}
 
-Port A('A');
-Port B('B');
-Port C('C');
-Port D('D');
+std::string Port::tag() { return "port"; }
+std::string Port::val() { return name; }
 
-Pin::Pin(Port *port, PinIndex pin) : port(port), pin(pin) {}
+Port A("A");
+Port B("B");
+Port C("C");
+Port D("D");
+
+Pin::Pin(Port *port, PinIndex index) {  //
+    port = port;
+    port->ref++;
+    index = index;
+}
+
+std::string Pin::tag() { return "pin"; }
+std::string Pin::val() {
+    std::ostringstream os;
+    os << index;
+    return os.str();
+}
 
 Pin B5(&B, 5);
