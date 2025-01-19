@@ -1,24 +1,18 @@
-#pragma once
-
 #include "object.hpp"
 #include "os.hpp"
+
+#pragma once
 
 /// @defgroup gpio gpio
 /// @ingroup libhw
 /// @{
 
 class Port : public Object {
-    std::string name;
+    char name;
 
    public:
-    Port(std::string name);
-    virtual std::string tag();  ///< @return type/class tag
-    virtual std::string val();  ///< @returns @rev value in string
-    /// @name power/activity control
-    /// @{
-    virtual void on();   ///< switch on
-    virtual void off();  ///< switch off
-    /// @}
+    Port(char name);
+    void dump(char divider = 'n');
 };
 
 extern Port A;
@@ -30,7 +24,7 @@ extern Port D;
 typedef uint8_t PinIndex;
 
 /// @brief @ref Pin i/o mode
-enum class PinState { HIGH, LOW, INPUT };
+enum class PinState : uint8_t { HIGH, LOW, INPUT };
 
 /// @brief @ref gpio pin
 class Pin : public Object {
@@ -39,13 +33,13 @@ class Pin : public Object {
     PinState state;
 
    public:
-    Pin(Port *port, PinIndex index);
-    virtual std::string tag();  ///< @return type/class tag
-    virtual std::string val();  ///< @returns @rev value in string
+    Pin(Port *port, PinIndex index, PinState state = PinState::INPUT);
+    void dump(char divider = 'n');
     /// @name power/activity control
     /// @{
-    virtual void on();   ///< switch on
-    virtual void off();  ///< switch off
+    void on();   ///< switch on
+    void off();  ///< switch off
+
     /// @}
 };
 

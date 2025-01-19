@@ -1,36 +1,32 @@
 #include "gpio.hpp"
 #include "os.hpp"
 
-Port::Port(std::string name) : name(name) {}
+Port::Port(char name) : name(name) {}
 
-std::string Port::tag() { return "port"; }
-std::string Port::val() { return name; }
+void Port::dump(char divider) { std::cerr << "port:" << name << divider; }
 
-void Port::on() {}
-void Port::off() {}
+Port A('A');
+Port B('B');
+Port C('C');
+Port D('D');
 
-Port A("A");
-Port B("B");
-Port C("C");
-Port D("D");
+Pin::Pin(Port* port, PinIndex index, PinState state)
+    : port(port), index(index), state(state) {}
 
-Pin::Pin(Port *port, PinIndex index) : port(port), index(index) {}
+static const char* pinstate_[] = {"high", "low", "input"};
 
-std::string Pin::tag() { return "pin"; }
-std::string Pin::val() {
-    std::ostringstream os;
-    os << index;
-    return os.str();
+void Pin::dump(char divider) {
+    std::cerr << "pin:" << pinstate_[(int)state] << divider;
 }
 
 void Pin::on() {
     state = PinState::HIGH;
-    std::cerr << dump();
+    dump();
 }
 
 void Pin::off() {
     state = PinState::LOW;
-    std::cerr << dump();
+    dump();
 }
 
 Pin B5(&B, 5);

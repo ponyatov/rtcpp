@@ -21,8 +21,8 @@ n [0-9]
 "0b"[01]+           { yylval.n = std::stol(&yytext[2], nullptr, 0x02); return BIN; }
 {s}?{n}+            { yylval.n = std::stol(&yytext[0], nullptr, 0x0A); return DEC; }
 
-"led"               { return LED_; }
-"on"                { return ON;   }
-"off"               { return OFF;  }
+"led"               { return LED; }
+"on"                { return ON;  }
+"off"               { return OFF; }
 
 .                   {yyerror("");}  // any undetected char

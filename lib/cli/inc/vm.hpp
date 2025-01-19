@@ -1,7 +1,7 @@
 #pragma once
 
 #include "object.hpp"
-#include "type.hpp"
+// #include "type.hpp"
 #include "os.hpp"
 
 /// @defgroup vm vm
@@ -15,20 +15,18 @@ class Cmd : public Object {};
 class VM : public Object {
     /// @name data stack
     /// @{
-    static const size_t Dsz = 0x10;  ///< @brief size
-    Cell D[Dsz];                     ///< @brief data stack
-    size_t Dp;                       ///< @brief data stack pointer
-
-    /// @}
+    static const uint8_t Dsz = 0x10;  ///< @brief size
+    int D[Dsz];                       ///< @brief data stack
+    size_t Dp;                        ///< @brief data stack pointer
+                                      /// @}
    public:
-    VM();                       ///< @brief construct & initialize
-    virtual std::string tag();  ///< @return type/class tag
-    virtual std::string val();  ///< @returns @rev value in string
+    VM();                            ///< @brief construct & initialize
+    void dump(char divider = '\n');  ///< dump @ref D
     /// @name data stack
     /// @{
-    void push(int n);   ///< `( -- n)` add integer to top of stack
-    void push(Cell c);  ///< `( -- o)`
-    Cell pop();         ///< `( o -- )` pop top element
+    void push(int n);  ///< `( -- n)` add integer to top of stack
+    int pop();         ///< `( n -- )` pop top element
+
     /// @}
 };
 
